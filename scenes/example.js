@@ -1,10 +1,6 @@
 import Phaser from "phaser";
 
 class ExampleScene extends Phaser.Scene {
-    graphics: Phaser.GameObjects.Graphics;
-    logo: Phaser.GameObjects.Image;
-    path: Phaser.Curves.Path;
-
     init() {
     }
     preload() {
@@ -19,11 +15,11 @@ class ExampleScene extends Phaser.Scene {
     }
     update() {
         const newPosition = this.getLogoPosition();
-        this.logo?.setPosition(newPosition[0], newPosition[1]);
+        this.logo.setPosition(newPosition[0], newPosition[1]);
         this.graphics.clear();
         this.graphics.lineStyle(1, 0xcfcfcf, 0.3);
-        this.path?.lineTo(this.logo.getCenter());
-        this.path?.draw(this.graphics);
+        this.path.lineTo(this.logo.getCenter());
+        this.path.draw(this.graphics);
     }
     getLogoPosition() {
         return [this.cameras.main.centerX + 300 * Math.sin(this.time.now / 317), this.cameras.main.centerY + 200 * Math.cos(this.time.now / 359)];
